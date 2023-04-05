@@ -46,6 +46,14 @@ typedef void(^PFUserLogoutResultBlock)(NSError *_Nullable error);
 + (nullable instancetype)currentUser;
 
 /**
+ Forgets the currently logged in user, so that it can be reloaded from disk on next use.
+
+ This can be useful in situations where user perfroms sign out / sign in / sign up from the main app,
+ and all running app extensions still contain (now stale) currentUser in memory.
+ */
++ (void)forgetCurrentUser;
+
+/**
  *Asynchronously* loads the currently logged in user from disk and returns a task that encapsulates it.
 
  @return The task that encapsulates the work being done.

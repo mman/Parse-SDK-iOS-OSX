@@ -819,6 +819,10 @@ static BOOL revocableSessionEnabled_;
     }
 }
 
++ (void)forgetCurrentUser {
+    [[[self class] currentUserController] forgetCurrentUser];
+}
+
 ///--------------------------------------
 #pragma mark - Log In
 ///--------------------------------------

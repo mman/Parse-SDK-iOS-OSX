@@ -58,4 +58,10 @@ typedef NS_OPTIONS(NSUInteger, PFCurrentUserLoadingOptions) {
 
 - (BFTask *)getCurrentUserSessionTokenAsync;
 
+///--------------------------------------
+#pragma mark - Extensions
+///--------------------------------------
+
+- (void)forgetCurrentUser;
+
 @end

@@ -330,6 +330,17 @@
 }
 
 ///--------------------------------------
+#pragma mark - Extensions
+///--------------------------------------
+
+- (void)forgetCurrentUser {
+    dispatch_barrier_sync(self->_dataQueue, ^{
+        self->_currentUser = nil;
+        self->_currentUserMatchesDisk = NO;
+    });
+}
+
+///--------------------------------------
 #pragma mark - Lazy Login
 ///--------------------------------------
 
