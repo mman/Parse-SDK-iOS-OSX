@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "Parse",
-    platforms: [.iOS(.v9), .macOS(.v10_10), .tvOS(.v9), .watchOS(.v6)],
+    platforms: [.iOS(.v9), .macOS(.v10_10), .tvOS(.v9), .watchOS(.v7)],
     products: [
         .library(
             name: "Parse",
