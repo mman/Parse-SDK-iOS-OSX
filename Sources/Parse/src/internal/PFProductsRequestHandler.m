@@ -13,7 +13,6 @@
 #import <Bolts/BFTaskCompletionSource.h>
 
 
-PF_OSX_UNAVAILABLE PF_WATCH_UNAVAILABLE
 @implementation PFProductsRequestResult
 
 - (instancetype)initWithProductsResponse:(SKProductsResponse *)response {
@@ -35,7 +34,6 @@ PF_OSX_UNAVAILABLE PF_WATCH_UNAVAILABLE
 
 @end
 
-PF_OSX_UNAVAILABLE PF_WATCH_UNAVAILABLE
 @implementation PFProductsRequestHandler
 
 ///--------------------------------------

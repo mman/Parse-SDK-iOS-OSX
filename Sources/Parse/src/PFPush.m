@@ -9,10 +9,6 @@
 
 #import <Parse/PFConstants.h>
 
-#if !TARGET_OS_WATCH
-#import <AudioToolbox/AudioToolbox.h>
-#endif
-
 #import <Parse/PFPush.h>
 #import "PFPushPrivate.h"
 
@@ -287,62 +283,6 @@ static Class _pushInternalUtilClass = nil;
     [[self unsubscribeFromChannelInBackground:channel] thenCallBackOnMainThreadWithBoolValueAsync:block];
 }
 
-///--------------------------------------
-#pragma mark - Handling Notifications
-///--------------------------------------
-
-#if TARGET_OS_IOS || TARGET_OS_TV
-+ (void)handlePush:(NSDictionary *)userInfo {
-    UIApplication *application = [PFApplication currentApplication].systemApplication;
-    if (application.applicationState != UIApplicationStateActive) {
-        return;
-    }
-
-    NSDictionary *aps = userInfo[@"aps"];
-    
-#if TARGET_OS_IOS
-    id alert = aps[@"alert"];
-
-    if (alert) {
-        NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:(__bridge NSString *)kCFBundleNameKey];
-        NSString *message = nil;
-        if ([alert isKindOfClass:[NSString class]]) {
-            message = alert;
-        } else if ([alert isKindOfClass:[NSDictionary class]]) {
-            NSDictionary *alertDict = alert;
-            NSString *locKey = alertDict[@"loc-key"];
-            if (locKey) {
-                NSString *format = [[NSBundle mainBundle] localizedStringForKey:locKey value:@"" table:nil];
-                message = [PFInternalUtils _stringWithFormat:format arguments:alertDict[@"loc-args"]];
-            }
-        }
-        if (message) {
-            [[self pushInternalUtilClass] showAlertViewWithTitle:appName message:message];
-        }
-    }
-#endif
-
-    NSNumber *badgeNumber = aps[@"badge"];
-    if (badgeNumber) {
-        NSInteger number = [aps[@"badge"] integerValue];
-        application.applicationIconBadgeNumber = number;
-    }
-
-#if TARGET_OS_IOS
-    NSString *soundName = aps[@"sound"];
-
-    // Vibrate or play sound only if `sound` is specified.
-    if ([soundName isKindOfClass:[NSString class]] && soundName.length != 0) {
-        // Vibrate if the sound is `default`, otherwise - play the sound name.
-        if ([soundName isEqualToString:@"default"]) {
-            [[self pushInternalUtilClass] playVibrate];
-        } else {
-            [[self pushInternalUtilClass] playAudioWithName:soundName];
-        }
-    }
-#endif
-}
-#endif
 
 ///--------------------------------------
 #pragma mark - Store Token

@@ -30,10 +30,8 @@
 #import "PFUserAuthenticationController.h"
 #import "PFUserController.h"
 
-#if !TARGET_OS_WATCH
 #import "PFCurrentInstallationController.h"
 #import "PFInstallationController.h"
-#endif
 
 @interface PFCoreManager () {
     dispatch_queue_t _locationManagerAccessQueue;
@@ -63,10 +61,8 @@
 @synthesize currentUserController = _currentUserController;
 @synthesize userController = _userController;
 
-#if !TARGET_OS_WATCH
 @synthesize currentInstallationController = _currentInstallationController;
 @synthesize installationController = _installationController;
-#endif
 
 
 ///--------------------------------------
@@ -380,7 +376,6 @@
     });
 }
 
-#if !TARGET_OS_WATCH
 
 ///--------------------------------------
 #pragma mark - Current Installation Controller
@@ -409,7 +404,6 @@
     });
 }
 
-#endif
 
 ///--------------------------------------
 #pragma mark - Current User Controller
@@ -438,7 +432,6 @@
     });
 }
 
-#if !TARGET_OS_WATCH
 
 ///--------------------------------------
 #pragma mark - Installation Controller
@@ -461,7 +454,6 @@
     });
 }
 
-#endif
 
 ///--------------------------------------
 #pragma mark - User Controller

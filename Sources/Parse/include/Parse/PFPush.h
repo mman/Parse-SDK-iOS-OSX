@@ -14,8 +14,6 @@
 #import <Parse/PFConstants.h>
 #import <Parse/PFInstallation.h>
 
-PF_WATCH_UNAVAILABLE_WARNING
-
 @class PFQuery<PFGenericObject : PFObject *>;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  The preferred way of modifying or retrieving channel subscriptions is to use
  the `PFInstallation` class, instead of the class methods in `PFPush`.
  */
-PF_WATCH_UNAVAILABLE @interface PFPush : NSObject<NSCopying>
+@interface PFPush : NSObject<NSCopying>
 
 ///--------------------------------------
 #pragma mark - Creating a Push Notification
@@ -262,24 +260,6 @@ PF_WATCH_UNAVAILABLE @interface PFPush : NSObject<NSCopying>
 + (void)sendPushDataToQueryInBackground:(PFQuery<PFInstallation *> *)query
                                withData:(NSDictionary *)data
                                   block:(nullable PFBooleanResultBlock)block;
-
-///--------------------------------------
-#pragma mark - Handling Notifications
-///--------------------------------------
-
-/**
- A default handler for push notifications while the app is active that
- could be used to mimic the behavior of iOS push notifications while the app is backgrounded or not running.
-
- Call this from `application:didReceiveRemoteNotification:`.
- If push has a dictionary containing loc-key and loc-args in the alert,
- we support up to 10 items in loc-args (`NSRangeException` if limit exceeded).
-
- @warning This method is available only on iOS.
-
- @param userInfo The userInfo dictionary you get in `appplication:didReceiveRemoteNotification:`.
- */
-+ (void)handlePush:(nullable NSDictionary *)userInfo NS_AVAILABLE_IOS(3_0) PF_EXTENSION_UNAVAILABLE("");
 
 ///--------------------------------------
 #pragma mark - Managing Channel Subscriptions

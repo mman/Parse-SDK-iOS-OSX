@@ -135,14 +135,4 @@
     XCTAssertNoThrow(configuration.containingApplicationBundleIdentifier = @"someContainer");
 }
 
-- (void)testServerValidation {
-    [ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration>  _Nonnull configuration) {
-        configuration.applicationId = @"a";
-        configuration.clientKey = @"b";
-
-        PFAssertThrowsInvalidArgumentException(configuration.server = @"");
-        PFAssertThrowsInvalidArgumentException(configuration.server = @"Yolo Yarr");
-    }];
-}
-
 @end

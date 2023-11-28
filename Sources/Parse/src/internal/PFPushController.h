@@ -11,15 +11,13 @@
 
 #import <Parse/PFConstants.h>
 
-PF_WATCH_UNAVAILABLE_WARNING
-
 @class BFTask<__covariant BFGenericType>;
 @class PFPushState;
 @protocol PFCommandRunning;
 
 NS_ASSUME_NONNULL_BEGIN
 
-PF_WATCH_UNAVAILABLE @interface PFPushController : NSObject
+@interface PFPushController : NSObject
 
 @property (nonatomic, strong, readonly) id<PFCommandRunning> commandRunner;
 

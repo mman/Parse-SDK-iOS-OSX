@@ -13,13 +13,11 @@
 
 #import "PFBaseState.h"
 
-PF_WATCH_UNAVAILABLE_WARNING
-
 @class PFQueryState;
 
 NS_ASSUME_NONNULL_BEGIN
 
-PF_WATCH_UNAVAILABLE @interface PFPushState : PFBaseState <NSCopying, NSMutableCopying>
+@interface PFPushState : PFBaseState <NSCopying, NSMutableCopying>
 
 @property (nullable, nonatomic, copy, readonly) NSSet *channels;
 @property (nullable, nonatomic, copy, readonly) PFQueryState *queryState;

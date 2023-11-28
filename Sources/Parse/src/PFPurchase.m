@@ -85,9 +85,7 @@
 ///--------------------------------------
 
 + (PFPurchaseController *)_purchaseController {
-#if TARGET_OS_IOS || TARGET_OS_TV
     return [Parse _currentManager].purchaseController;
-#endif
 }
 
 @end

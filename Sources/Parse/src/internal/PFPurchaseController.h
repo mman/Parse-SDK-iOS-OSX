@@ -13,9 +13,6 @@
 
 #import "PFDataProvider.h"
 
-PF_OSX_UNAVAILABLE_WARNING
-PF_WATCH_UNAVAILABLE_WARNING
-
 @class BFTask<__covariant BFGenericType>;
 @class PFFileManager;
 @class PFPaymentTransactionObserver;
@@ -25,7 +22,7 @@ PF_WATCH_UNAVAILABLE_WARNING
 @class SKPaymentQueue;
 @class SKPaymentTransaction;
 
-PF_OSX_UNAVAILABLE PF_WATCH_UNAVAILABLE @interface PFPurchaseController : NSObject
+@interface PFPurchaseController : NSObject
 
 @property (nonatomic, weak, readonly) id<PFCommandRunnerProvider, PFFileManagerProvider> dataSource;
 @property (nonatomic, strong, readonly) NSBundle *bundle;

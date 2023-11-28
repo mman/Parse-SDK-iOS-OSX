@@ -11,8 +11,6 @@
 
 #import <Parse/PFInstallation.h>
 
-PF_WATCH_UNAVAILABLE_WARNING
-
 @interface PFInstallation (Private)
 
 - (void)_clearDeviceToken;

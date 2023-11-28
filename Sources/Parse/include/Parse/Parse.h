@@ -48,7 +48,6 @@
 #if TARGET_OS_IOS
 
 #import <Parse/PFInstallation.h>
-#import <Parse/PFNetworkActivityIndicatorManager.h>
 #import <Parse/PFPush.h>
 #import <Parse/PFPush+Synchronous.h>
 #import <Parse/PFPush+Deprecated.h>
@@ -66,6 +65,15 @@
 
 #import <Parse/PFInstallation.h>
 #import <Parse/PFPush.h>
+#import <Parse/PFProduct.h>
+#import <Parse/PFPurchase.h>
+
+#elif TARGET_OS_WATCH
+
+#import <Parse/PFInstallation.h>
+#import <Parse/PFPush.h>
+#import <Parse/PFPush+Synchronous.h>
+#import <Parse/PFPush+Deprecated.h>
 #import <Parse/PFProduct.h>
 #import <Parse/PFPurchase.h>
 

@@ -12,9 +12,6 @@
 
 #import <Parse/PFConstants.h>
 
-PF_OSX_UNAVAILABLE_WARNING
-PF_WATCH_UNAVAILABLE_WARNING
-
 @class PFProduct;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -28,7 +25,7 @@ typedef void (^PFPurchaseDownloadAssetResultBlock)(NSString *_Nullable filePath,
 
  This class is currently for iOS only.
  */
-PF_OSX_UNAVAILABLE PF_WATCH_UNAVAILABLE @interface PFPurchase : NSObject
+@interface PFPurchase : NSObject
 
 /**
  Add application logic block which is run when buying a product.

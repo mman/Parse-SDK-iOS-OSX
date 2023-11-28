@@ -29,10 +29,8 @@
 #import "PFPersistenceController.h"
 #import "ParseManagerPrivate.h"
 
-#if !TARGET_OS_WATCH
 #import "PFPushManager.h"
 #import <Parse/PFInstallation.h>
-#endif
 
 #if TARGET_OS_IOS || TARGET_OS_TV
 #import "PFPurchaseController.h"
@@ -440,9 +438,7 @@ static NSString *const _ParseApplicationIdFileName = @"applicationId";
         NSArray *tasks = @[
                            [PFUser getCurrentUserInBackground],
                            [PFConfig getCurrentConfigInBackground],
-#if !TARGET_OS_WATCH
                            [PFInstallation getCurrentInstallationInBackground],
-#endif
                            ];
         [[BFTask taskForCompletionOfAllTasks:tasks] waitUntilFinished]; // Wait synchronously to make sure we are blocking preload queue.
         [self eventuallyQueue];

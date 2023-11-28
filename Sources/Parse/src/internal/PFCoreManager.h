@@ -48,10 +48,8 @@ PFObjectFilePersistenceControllerProvider,
 PFPinningObjectStoreProvider,
 PFObjectLocalIdStoreProvider,
 PFUserAuthenticationControllerProvider,
-#if !TARGET_OS_WATCH
 PFInstallationControllerProvider,
 PFCurrentInstallationControllerProvider,
-#endif
 PFCurrentUserControllerProvider,
 PFUserControllerProvider
 >

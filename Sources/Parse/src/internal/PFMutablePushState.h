@@ -9,11 +9,9 @@
 
 #import "PFPushState.h"
 
-PF_WATCH_UNAVAILABLE_WARNING
-
 NS_ASSUME_NONNULL_BEGIN
 
-PF_WATCH_UNAVAILABLE @interface PFMutablePushState : PFPushState
+@interface PFMutablePushState : PFPushState
 
 @property (nullable, nonatomic, copy, readwrite) NSSet *channels;
 @property (nullable, nonatomic, copy, readwrite) PFQueryState *queryState;

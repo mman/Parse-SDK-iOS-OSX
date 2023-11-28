@@ -117,9 +117,7 @@ static NSSet *protectedKeys;
 ///--------------------------------------
 
 + (PFCurrentInstallationController *)_currentInstallationController {
-#if !TARGET_OS_WATCH
     return [Parse _currentManager].coreManager.currentInstallationController;
-#endif
 }
 
 @end
@@ -372,9 +370,7 @@ static NSSet *protectedKeys;
 ///--------------------------------------
 
 + (id<PFObjectControlling>)objectController {
-#if !TARGET_OS_WATCH
     return [Parse _currentManager].coreManager.installationController;
-#endif
 }
 
 @end

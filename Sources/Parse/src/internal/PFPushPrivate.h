@@ -13,8 +13,6 @@
 
 #import "PFMacros.h"
 
-PF_WATCH_UNAVAILABLE_WARNING
-
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol PFPushInternalUtils <NSObject>
@@ -23,14 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)convertDeviceTokenToString:(id)deviceToken;
 + (nullable NSString *)getDeviceTokenFromKeychain;
 + (void)clearDeviceToken;
-
-#if TARGET_OS_IOS
-
-+ (void)showAlertViewWithTitle:(nullable NSString *)title message:(nullable NSString *)message NS_EXTENSION_UNAVAILABLE_IOS("");
-+ (void)playVibrate;
-+ (void)playAudioWithName:(nullable NSString *)audioName;
-
-#endif
 
 @end
 

@@ -27,9 +27,7 @@
 #import "PFObjectSubclassingController.h"
 #import "Parse_Private.h"
 
-#if !TARGET_OS_WATCH
 #import "PFInstallationPrivate.h"
-#endif
 
 #import "PFCategoryLoader.h"
 
@@ -81,10 +79,6 @@ static ParseClientConfiguration *currentParseConfiguration_;
     [manager startManaging];
 
     currentParseManager_ = manager;
-
-#if TARGET_OS_IOS
-    [PFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-#endif
 
     [[[currentParseManager_ preloadDiskObjectsToMemoryAsync] continueWithBlock:^id _Nullable(BFTask * _Nonnull t) {
         return [[self parseModulesCollection] parseDidInitializeWithApplicationId:configuration.applicationId

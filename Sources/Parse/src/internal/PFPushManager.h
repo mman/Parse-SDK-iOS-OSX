@@ -14,14 +14,12 @@
 #import "PFCoreDataProvider.h"
 #import "PFDataProvider.h"
 
-PF_WATCH_UNAVAILABLE_WARNING
-
 @class PFPushChannelsController;
 @class PFPushController;
 
 NS_ASSUME_NONNULL_BEGIN
 
-PF_WATCH_UNAVAILABLE @interface PFPushManager : NSObject
+@interface PFPushManager : NSObject
 
 @property (nonatomic, weak, readonly) id<PFCommandRunnerProvider> commonDataSource;
 @property (nonatomic, weak, readonly) id<PFCurrentInstallationControllerProvider> coreDataSource;

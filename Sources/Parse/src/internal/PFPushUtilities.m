@@ -11,12 +11,6 @@
 
 #import <dlfcn.h>
 
-#if TARGET_OS_IOS
-#import <AudioToolbox/AudioToolbox.h>
-
-#import "PFAlertView.h"
-#endif
-
 #import "PFInstallationPrivate.h"
 #import "PFKeychainStore.h"
 #import "PFLogging.h"
@@ -53,39 +47,5 @@
     [[PFInstallation currentInstallation] _clearDeviceToken];
     [[[PFKeychainStore alloc] initWithService:@"ParsePush"] removeObjectForKey:@"ParsePush"];
 }
-
-#if TARGET_OS_IOS
-
-+ (void)showAlertViewWithTitle:(nullable NSString *)title message:(nullable NSString *)message NS_EXTENSION_UNAVAILABLE_IOS("") {
-    NSString *cancelButtonTitle = NSLocalizedStringFromTableInBundle(@"OK", @"Parse",
-                                                                     [NSBundle bundleForClass:[self class]],
-                                                                     @"Default alert view cancel button title.");
-    [PFAlertView showAlertWithTitle:title
-                            message:message
-                  cancelButtonTitle:cancelButtonTitle
-                  otherButtonTitles:nil
-                         completion:nil];
-}
-
-+ (void)playAudioWithName:(NSString *)audioFileName {
-    SystemSoundID soundId = -1;
-
-    if (audioFileName) {
-        NSURL *bundlePath = [[NSBundle mainBundle] URLForResource:audioFileName.stringByDeletingPathExtension
-                                                    withExtension:audioFileName.pathExtension];
-
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)bundlePath, &soundId);
-    }
-
-    if (soundId != -1) {
-        AudioServicesPlaySystemSound(soundId);
-    }
-}
-
-+ (void)playVibrate {
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-}
-
-#endif
 
 @end
