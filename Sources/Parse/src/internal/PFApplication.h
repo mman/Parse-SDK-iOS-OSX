@@ -15,6 +15,8 @@
 #import <UIKit/UIKit.h>
 #elif TARGET_OS_WATCH
 @class UIApplication;
+#elif TARGET_OS_VISION
+@class UIApplication;
 #elif PF_TARGET_OS_OSX
 #import <AppKit/AppKit.h>
 @compatibility_alias UIApplication NSApplication;

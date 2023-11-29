@@ -121,6 +121,8 @@
 - (UIApplication *)systemApplication {
 #if TARGET_OS_WATCH
     return nil;
+#elif TARGET_OS_VISION
+    return nil;
 #else
     // Workaround to make `sharedApplication` still be called even if compiling for App Extensions or WatchKit apps.
     return [UIApplication performSelector:@selector(sharedApplication)];

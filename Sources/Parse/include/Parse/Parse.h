@@ -77,6 +77,15 @@
 #import <Parse/PFProduct.h>
 #import <Parse/PFPurchase.h>
 
+#elif TARGET_OS_VISION
+
+#import <Parse/PFInstallation.h>
+#import <Parse/PFPush.h>
+#import <Parse/PFPush+Synchronous.h>
+#import <Parse/PFPush+Deprecated.h>
+#import <Parse/PFProduct.h>
+#import <Parse/PFPurchase.h>
+
 #endif
 
 NS_ASSUME_NONNULL_BEGIN

@@ -17,6 +17,8 @@ NSString *const kPFDeviceType = @"osx";
 NSString *const kPFDeviceType = @"tvos";
 #elif TARGET_OS_WATCH
 NSString *const kPFDeviceType = @"applewatch";
+#elif TARGET_OS_VISION
+NSString *const kPFDeviceType = @"applevision";
 #endif
 
 NSString *const PFParseErrorDomain = @"Parse";
